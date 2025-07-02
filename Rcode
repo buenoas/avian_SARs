@@ -122,7 +122,7 @@ gg_aicc_forest = ggplot(data = subset(aiccs_tc_forest, buffer <= 2000),
 ### COMBINE THE PLOTS ###
 ggsave(
   grid.arrange(gg_aicc_all, gg_aicc_forest, ncol = 2),
-  filename = "G:/My Drive/Pesquisa/Parcerias/Chase/Manuscript_to_Nature/FigS1.png",
+  filename = "FigS1.png",
   dpi = 600, width = 12 * 2, height = 12, units = "cm"
 )
 
@@ -236,6 +236,7 @@ gg_matrix_all =
        y = "Bird species richness (S)",
        title = "All species",
        tag = "a") +
+  #geom_vline(xintercept = log10(509.6546)) +
   geom_line(linetype = "solid", linewidth = 1) +
   scale_x_continuous(limits = c(log10(0.1), log10(170000)),
                      expand = c(0, 0),
@@ -269,11 +270,6 @@ gg_matrix_all =
 # Display the plot
 gg_matrix_all
 
-# Save the plot as a high-resolution PNG file
-#ggsave(gg_matrix_all,
-#       filename = "G:/My Drive/Pesquisa/Parcerias/Chase/Manuscript_to_Nature/Fig3A.png",
-#       dpi = 600, width = 12, height = 12, units = "cm")
-
 
 # Matrix model for forest-dependent species
 model_50_forest = lmer(logRichnessForest ~ logArea * matrixType + (1 + logArea|datasetID),
@@ -300,6 +296,7 @@ gg_matrix_forest =
        colour = "Matrix type",
        title = "Forest-dependent species",
        tag = "b") +
+  #geom_vline(xintercept = log10(216.2345)) +
   geom_line(linetype = "solid", linewidth = 1) +
   scale_x_continuous(limits = c(log10(0.1), log10(170000)),
                      expand = c(0, 0),
@@ -335,15 +332,10 @@ gg_matrix_forest =
 # Display the plot
 gg_matrix_forest
 
-# Save the plot as a high-resolution PNG file
-#ggsave(gg_matrix_forest,
-#       filename = "G:/My Drive/Pesquisa/Parcerias/Chase/Manuscript_to_Nature/Fig3B.png",
-#       dpi = 600, width = 12, height = 12, units = "cm")
-
 
 # Combine figures (Figure 2)
 ggsave(grid.arrange(gg_matrix_all, gg_matrix_forest, ncol = 2),
-       filename = "G:/My Drive/Pesquisa/Parcerias/Chase/Manuscript_to_Nature/Fig2.png",
+       filename = "Fig2.png",
        dpi = 600, width = 12*2, height = 12, units = "cm")
 
 
@@ -462,11 +454,6 @@ gg_treecover_forest =
 # Display the plot
 gg_treecover_forest
 
-# Save the plot as a high-resolution PNG file
-#ggsave(gg_treecover_forest,
-#       filename = "G:/My Drive/Pesquisa/Parcerias/Chase/Manuscript_to_Nature/Fig4B.png",
-#       dpi = 600, width = 12, height = 12, units = "cm")
-
 
 # Tree cover model for all species
 model_50_all = lmer(logRichnessAll ~ logArea * residualsTreeCover300m + (1 + logArea|datasetID),
@@ -513,14 +500,10 @@ gg_treecover_all =
 # Display the plot
 gg_treecover_all
 
-# Save the plot as a high-resolution PNG file
-#ggsave(gg_treecover_all,
-#       filename = "G:/My Drive/Pesquisa/Parcerias/Chase/Manuscript_to_Nature/Fig4A.png",
-#       dpi = 600, width = 12, height = 12, units = "cm")
 
 # Combine figures (Figure 3)
 ggsave(grid.arrange(gg_treecover_forest, gg_treecover_all, ncol = 2),
-       filename = "G:/My Drive/Pesquisa/Parcerias/Chase/Manuscript_to_Nature/Fig3.png",
+       filename = "Fig3.png",
        dpi = 600, width = 12*2, height = 12, units = "cm")
 
 
@@ -798,5 +781,5 @@ gg_birds =
 #gg_birds
 
 ggsave(gg_birds,
-       filename = "G:/My Drive/Pesquisa/Parcerias/Chase/Manuscript_to_Nature/Fig1.jpg",
+       filename = "Fig1.jpg",
        dpi = 600*2, width = 17.8, height = 4.45, units = "cm")
