@@ -82,7 +82,7 @@ gg_aicc_all = ggplot(data = subset(aiccs_tc_all, buffer <= 2000),
   labs(x = "Radius of the landscape (m)",
        y = "AICc",
        title = "All species",
-       tag = "a") +
+       tag = "A") +
   scale_x_continuous(breaks = c(50, 300, 500, 1000, 1500, 2000),
                      labels = c("50", "300", "500", "1,000", "1,500", "2,000")) +
   scale_y_continuous(limits = c(NA, -250)) +
@@ -94,8 +94,7 @@ gg_aicc_all = ggplot(data = subset(aiccs_tc_all, buffer <= 2000),
   theme(axis.text = element_text(size = 10),
         axis.line = element_line(linewidth = 1/3),
         axis.ticks = element_line(linewidth = 1/3),
-        plot.title = element_text(hjust = 0.5),
-        plot.tag = element_text(face = "bold"))
+        plot.title = element_text(hjust = 0.5))
 
 # Plot for forest-dependent species
 gg_aicc_forest = ggplot(data = subset(aiccs_tc_forest, buffer <= 2000),
@@ -103,7 +102,7 @@ gg_aicc_forest = ggplot(data = subset(aiccs_tc_forest, buffer <= 2000),
   labs(x = "Radius of the landscape (m)",
        y = "",
        title = "Forest-dependent species",
-       tag = "b") +
+       tag = "B") +
   scale_x_continuous(breaks = c(50, 300, 500, 1000, 1500, 2000),
                      labels = c("50", "300", "500", "1,000", "1,500", "2,000")) +
   scale_y_continuous(limits = c(NA, 100),
@@ -116,8 +115,7 @@ gg_aicc_forest = ggplot(data = subset(aiccs_tc_forest, buffer <= 2000),
   theme(axis.text = element_text(size = 10),
         axis.line = element_line(linewidth = 1/3),
         axis.ticks = element_line(linewidth = 1/3),
-        plot.title = element_text(hjust = 0.5),
-        plot.tag = element_text(face = "bold"))
+        plot.title = element_text(hjust = 0.5))
 
 ### COMBINE THE PLOTS ###
 ggsave(
@@ -235,7 +233,7 @@ gg_matrix_all =
   labs(x = "Forest remnant area (A) [ha]",
        y = "Bird species richness (S)",
        title = "All species",
-       tag = "a") +
+       tag = "A") +
   #geom_vline(xintercept = log10(509.6546)) +
   geom_line(linetype = "solid", linewidth = 1) +
   scale_x_continuous(limits = c(log10(0.1), log10(170000)),
@@ -258,7 +256,6 @@ gg_matrix_all =
         axis.line = element_line(linewidth = 1/3),
         axis.ticks = element_line(linewidth = 1/3),
         plot.title = element_text(hjust = 0.5),
-        plot.tag = element_text(face = "bold"),
         legend.position = "none") +
   annotate("text", x = log10(0.2), y = log10(1000),
            size = 3.5, hjust = 0, vjust = 1,
@@ -295,7 +292,7 @@ gg_matrix_forest =
        y = "",
        colour = "Matrix type",
        title = "Forest-dependent species",
-       tag = "b") +
+       tag = "B") +
   #geom_vline(xintercept = log10(216.2345)) +
   geom_line(linetype = "solid", linewidth = 1) +
   scale_x_continuous(limits = c(log10(0.1), log10(170000)),
@@ -318,7 +315,6 @@ gg_matrix_forest =
         axis.line = element_line(linewidth = 1/3),
         axis.ticks = element_line(linewidth = 1/3),
         plot.title = element_text(hjust = 0.5),
-        plot.tag = element_text(face = "bold"),
         legend.position = c(0.98, 0.05),
         legend.justification = c(0.98, 0.05)) +
   guides(linetype = "none", fill = "none") +
@@ -429,7 +425,7 @@ gg_treecover_forest =
   labs(x = "Forest remnant area (A) [ha]",
        y = "Bird species richness (S)",
        title = "Forest-dependent species",
-       tag = "a") +
+       tag = "A") +
   geom_line(linetype = "solid", linewidth = 1) +
   scale_x_continuous(limits = c(log10(0.1), log10(170000)),
                      expand = c(0, 0),
@@ -448,7 +444,6 @@ gg_treecover_forest =
         axis.line = element_line(linewidth = 1/3),
         axis.ticks = element_line(linewidth = 1/3),
         plot.title = element_text(hjust = 0.5),
-        plot.tag = element_text(face = "bold"),
         legend.position = "none")
 
 # Display the plot
@@ -474,7 +469,7 @@ gg_treecover_all =
   labs(x = "Forest remnant area (A) [ha]",
        y = "",
        title = "All species",
-       tag = "b") +
+       tag = "B") +
   geom_line(linetype = "solid", linewidth = 1) +
   scale_x_continuous(limits = c(log10(0.1), log10(170000)),
                      expand = c(0, 0),
@@ -493,7 +488,6 @@ gg_treecover_all =
         axis.line = element_line(linewidth = 1/3),
         axis.ticks = element_line(linewidth = 1/3),
         plot.title = element_text(hjust = 0.5),
-        plot.tag = element_text(face = "bold"),
         legend.position = c(0.98, 0.05),
         legend.justification = c(0.98, 0.05))
 
