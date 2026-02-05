@@ -16,7 +16,7 @@ library(ggpubr)
 
 
 # Load data
-dat = read.csv("G:/My Drive/Pesquisa/Parcerias/Chase/Manuscript_to_PNAS/Manuscript_to_PNAS_revision_2/islands_data.csv")
+dat = read.csv("https://raw.githubusercontent.com/buenoas/avian_SARs/main/islands_data.csv")
 
 
 # Transform variables to log10
