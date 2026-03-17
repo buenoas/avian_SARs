@@ -120,9 +120,8 @@ gg_aicc_forest = ggplot(data = subset(aiccs_tc_forest, buffer <= 2000),
 ### COMBINE THE PLOTS ###
 ggsave(
   grid.arrange(gg_aicc_all, gg_aicc_forest, ncol = 2),
-  filename = "FigS1.png",
-  dpi = 600, width = 12 * 2, height = 12, units = "cm"
-)
+  filename = "FigS4.png",
+  dpi = 600, width = 12 * 2, height = 12, units = "cm")
 
 
 ###################################
@@ -259,10 +258,12 @@ gg_matrix_all =
         legend.position = "none") +
   annotate("text", x = log10(0.2), y = log10(1000),
            size = 3.5, hjust = 0, vjust = 1,
-           label = bquote(italic("Aquatic matrix: S =") ~ .(c_aquatic_all) %*% italic(A)^.(z_aquatic_all))) +
+           label = paste0("italic('Aquatic matrix: S = ') * ", format(c_aquatic_all, digits=3), " *' × '* italic(A)^", format(z_aquatic_all, digits=3)),
+           parse = TRUE) +
   annotate("text", x = log10(0.2), y = log10(1000),
            size = 3.5, hjust = 0, vjust = 2.5,
-           label = bquote(italic("Terrestrial matrix: S =") ~ .(c_terrestrial_all) %*% italic(A)^.(z_terrestrial_all)))
+           label = paste0("italic('Terrestrial matrix: S = ') * ", format(c_terrestrial_all, digits=3), " *' × '* italic(A)^", format(z_terrestrial_all, digits=3)),
+           parse = TRUE)
 
 # Display the plot
 gg_matrix_all
@@ -320,10 +321,12 @@ gg_matrix_forest =
   guides(linetype = "none", fill = "none") +
   annotate("text", x = log10(0.2), y = log10(1000),
            size = 3.5, hjust = 0, vjust = 1,
-           label = bquote(italic("Aquatic matrix: S =") ~ .(c_aquatic_forest) %*% italic(A)^.(z_aquatic_forest))) +
+           label = paste0("italic('Aquatic matrix: S = ') * ", format(c_aquatic_forest, digits = 3), " *' × '* italic(A)^", format(z_aquatic_forest, digits = 3)),
+           parse = TRUE) +
   annotate("text", x = log10(0.2), y = log10(1000),
            size = 3.5, hjust = 0, vjust = 2.5,
-           label = bquote(italic("Terrestrial matrix: S =") ~ .(c_terrestrial_forest) %*% italic(A)^.(z_terrestrial_forest)))
+           label = paste0("italic('Terrestrial matrix: S = ') * ", format(c_terrestrial_forest, digits = 3), " *' × '* italic(A)^", format(z_terrestrial_forest, digits = 3)),
+           parse = TRUE)
 
 # Display the plot
 gg_matrix_forest
